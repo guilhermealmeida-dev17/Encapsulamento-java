@@ -1,31 +1,29 @@
-# Projeto de Encapsulamento em Java
+# Exercícios de encapsulamento em Java
 
-Este projeto foi desenvolvido como parte de uma atividade acadêmica para aplicar os conceitos de **Programação Orientada a Objetos (POO)**, com foco no pilar de **Encapsulamento**. O sistema é executado via console e está dividido no padrão arquitetural Model-View.
+Aplicação de console que reúne três exemplos de modelagem com atributos privados, métodos de acesso e regras de validação.
 
-## 📌 Sobre o Projeto
+## Módulos
 
-O objetivo principal é garantir a integridade dos dados protegendo os atributos das classes (utilizando o modificador `private`) e permitindo a alteração e visualização desses dados apenas através de métodos públicos (`getters`, `setters` e métodos de negócio com validações).
+- **Carros:** dados do veículo, ações de ligar/desligar/buzinar, cálculo de tempo de trajeto e valor para encher o tanque.
+- **Contas bancárias:** consulta de saldo, depósitos, saques e transferências com validações.
+- **Produtos:** alteração de preço e quantidade em estoque com validação de valores não negativos.
 
-## ⚙️ Funcionalidades
+## Tecnologias e conceitos
 
-O sistema possui um menu interativo com três módulos principais:
+- Java e JDK
+- Encapsulamento com campos privados e métodos públicos
+- Classes, construtores e validação de regras
+- Menus interativos com `Scanner`
 
-*   **🚗 Sistema de Carros:**
-    *   Cadastro de novos veículos (Marca, Modelo, Placa, Capacidade do Tanque).
-    *   Cálculo do valor total para encher o tanque com base no preço da gasolina atual.
-    *   Simulação de aceleração (cálculo de tempo baseado em velocidade e distância).
-*   **🏦 Sistema Bancário (PathBank):**
-    *   Cadastro de Usuários e vinculação à Conta Bancária.
-    *   Depósitos e Saques com validação de saldo insuficiente e impedimento de valores negativos.
-    *   Transferências seguras entre contas cadastradas.
-*   **📦 Gerenciamento de Estoque (Produtos):**
-    *   Cadastro de novos produtos.
-    *   Validação estrita no *setter* de Preço (não aceita valores negativos).
-    *   Validação no *setter* de Quantidade em Estoque (apenas valores maiores ou iguais a zero).
+## Como executar
 
-## 🚀 Como Executar
+O código-fonte fica em `src/main/java` e não há configuração Maven ou Gradle neste repositório. Com um JDK instalado, compile os arquivos pelo PowerShell:
 
-1. Certifique-se de ter o **Java JDK** instalado em sua máquina.
-2. Clone este repositório:
-   ```bash
-   git clone URL_DO_SEU_REPOSITORIO
+```powershell
+$sources = Get-ChildItem .\src\main\java -Recurse -Filter *.java | ForEach-Object { $_.FullName }
+New-Item -ItemType Directory -Force out | Out-Null
+javac -d out $sources
+java -cp out br.edu.fatecpg.encapsulamento.view.Main
+```
+
+Este projeto é um exercício acadêmico de console; não usa persistência em banco de dados.
